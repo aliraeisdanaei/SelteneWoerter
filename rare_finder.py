@@ -57,5 +57,5 @@ for file in files:
 	print("Top " + str(top_n_rare) + " seltene Wörter in egp" + determinePodcastNumber(file) + ":", list(top_rare.iloc[:, 0].values))
 
 	rare_filename = 'egp' + determinePodcastNumber(file) + "_selteneWörter.txt" #setting a file name based on the podcast number
-	top_rare.to_csv(rare_filename, header=False, index=False, mode='a') #saving it 
+	top_rare.to_csv(rare_filename, header=False, index=False) #saving it 
 
