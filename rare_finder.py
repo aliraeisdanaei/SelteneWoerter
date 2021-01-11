@@ -11,8 +11,8 @@ import sys #for the argv use
 
 # if no value is given as a parameter the top 20 rare words are found
 top_n_rare = 20 
-if len(sys.argv) != 0 and type(sys.argv[0]) == int:
-	top_n_rare = sys.argv[0]
+if len(sys.argv) != 1:
+	top_n_rare = int(sys.argv[1])
 
 #it has been assumed that the freqTable is uptodate
 # perhaps a script here is needed to  automatically determine if it requires updating
@@ -51,7 +51,7 @@ for file in files:
 	# occuring_words = lowerCase_set & freqTable_words_Desc
 	# top_rare_list = list(occuring_words)[:top_n_rare]
 	occuring_words = pd.merge(currentWords, freqTable).sort_values(by=['frequency'])
-	print(occuring_words)
+	# print(occuring_words)
 
 	top_rare = occuring_words.head(top_n_rare)
 	print("Top " + str(top_n_rare) + " seltene Wörter in egp" + determinePodcastNumber(file) + ":", list(top_rare.iloc[:, 0].values))
